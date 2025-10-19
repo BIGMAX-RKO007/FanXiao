@@ -3,7 +3,7 @@ import './globals.css';
 // 导入 Next.js 中 Metadata（页面元信息）、Viewport 类型（用于响应式）
 import type { Metadata, Viewport } from 'next';
 // 导入 Google Fonts 字体加载器（Manrope 字体）
-import { Noto_Sans_SC, Noto_Sans_JP, Manrope } from 'next/font/google';
+import { Manrope } from 'next/font/google';
 // 导入用户/团队获取工具函数（通常用于数据预加载或 fallback 数据）
 import { getUser, getTeamForUser } from '@/lib/db/queries';
 // 导入 SWR 的全局 Provider，用于统一缓存和数据请求配置
@@ -22,8 +22,8 @@ export const viewport: Viewport = {
 
 // 加载 Manrope Web 字体，仅拉取 'latin'（英文字母）子集以加速加载
 const manrope = Manrope({ subsets: ['latin'] , display: 'swap' });
-const jp = Noto_Sans_JP({ display: 'swap' });
-const sc = Noto_Sans_SC({ display: 'swap' });
+// const jp = Noto_Sans_JP({ display: 'swap' });
+// const sc = Noto_Sans_SC({ display: 'swap' });
 
 /**
  * RootLayout 是所有页面外层的全局布局组件
