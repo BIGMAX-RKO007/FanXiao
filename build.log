@@ -1,0 +1,35 @@
+09:26:01.211 
+  ├ chunks/049b3674-79097e9f839036d4.js  63.7 kB
+09:26:01.211 
+  ├ chunks/437-c6f49ea25bc0a4fc.js       55.3 kB
+09:26:01.212 
+  └ other shared chunks (total)          1.93 kB
+09:26:01.212 
+09:26:01.212 
+09:26:01.213 
+○  (Static)             prerendered as static content
+09:26:01.213 
+◐  (Partial Prerender)  prerendered as static HTML with dynamic server-streamed content
+09:26:01.213 
+ƒ  (Dynamic)            server-rendered on demand
+09:26:01.213 
+09:26:01.384 
+Traced Next.js server files in: 86.852ms
+09:26:01.526 
+Created all serverless functions in: 141.098ms
+09:26:01.541 
+Collected static files (public/, static/, .next/static): 4.818ms
+09:26:01.673 
+Build Completed in /vercel/output [3m]
+09:26:01.861 
+Deploying outputs...
+09:26:14.593 
+Deployment completed
+09:26:15.446 
+Creating build cache...
+09:26:29.007 
+Created build cache: 13.561s
+09:26:29.011 
+Uploading build cache [185.22 MB]
+09:26:31.110 
+Build cache uploaded: 2.101s
