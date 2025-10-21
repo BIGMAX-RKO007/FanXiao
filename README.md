@@ -107,6 +107,7 @@ stripe listen --forward-to localhost:3000/api/stripe/webhook
 
 登录 Stripe Dashboard
 👉 https://dashboard.stripe.com/test/webhooks
+    https://dashboard.stripe.com/acct_1SIrbeIEJVXFebKo/test/workbench/webhooks
 
 点击「+ Add endpoint」
 
