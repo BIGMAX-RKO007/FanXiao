@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import ContactMe from '@/components/ui/contact-me';
 import   GeneratePasswordButton from '@/components/ui/generate-password-button';
 
 import { 
@@ -124,7 +125,7 @@ export default function HomePage() {
               这里是我的个人诗歌集与梦想日志——时代浪漫主义的片段与隽语，亦或足球场上的奔跑和电影镜头下的故事。
               </p>
             </div>
-            <div className="mt-8 lg:mt-0 flex justify-center lg:justify-end">
+            {/* <div className="mt-8 lg:mt-0 flex justify-center lg:justify-end">
               <a href="https://github.com/nextjs/saas-starter" target="_blank">
                 <Button
                   size="lg"
@@ -135,7 +136,8 @@ export default function HomePage() {
                   <ArrowRight className="ml-3 h-6 w-6" />
                 </Button>
               </a>
-            </div>
+            </div> */}
+            <ContactMe />
           </div>
         </div>
       </section>
