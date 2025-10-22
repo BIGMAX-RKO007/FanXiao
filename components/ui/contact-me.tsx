@@ -10,22 +10,46 @@ export default function ContactMeEnhanced() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // 模拟提交
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setSubmitted(true);
-    
-    // 重置表单
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+    setError('');
+
+    try {
+      // 🎉 发送到后端 API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // 成功
+        setSubmitted(true);
+        console.log('✅ 发送成功:', data);
+        
+        // 3秒后重置表单
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({ name: '', email: '', message: '' });
+        }, 3000);
+      } else {
+        // 失败
+        setError(data.error || '发送失败，请稍后重试');
+      }
+
+    } catch (err) {
+      console.error('❌ 发送失败:', err);
+      setError('网络错误，请检查连接后重试');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -40,6 +64,13 @@ export default function ContactMeEnhanced() {
         </p>
       </div>
 
+      {/* 错误提示 */}
+      {error && (
+        <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
+          <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+        </div>
+      )}
+
       {/* 表单 */}
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* 姓名 */}
@@ -52,7 +83,8 @@ export default function ContactMeEnhanced() {
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             required
-            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
+            disabled={isSubmitting}
+            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all disabled:opacity-50"
             placeholder="你的名字"
           />
         </div>
@@ -67,7 +99,8 @@ export default function ContactMeEnhanced() {
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             required
-            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
+            disabled={isSubmitting}
+            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all disabled:opacity-50"
             placeholder="your@email.com"
           />
         </div>
@@ -81,8 +114,9 @@ export default function ContactMeEnhanced() {
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             required
+            disabled={isSubmitting}
             rows={4}
-            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all resize-none"
+            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all resize-none disabled:opacity-50"
             placeholder="想说点什么..."
           />
         </div>
@@ -91,7 +125,7 @@ export default function ContactMeEnhanced() {
         <button
           type="submit"
           disabled={isSubmitting || submitted}
-          className="group relative w-full py-4 overflow-hidden"
+          className="group relative w-full py-4 overflow-hidden disabled:cursor-not-allowed"
         >
           {/* 按钮背景 */}
           <div className={`absolute inset-0 rounded-xl transition-all ${

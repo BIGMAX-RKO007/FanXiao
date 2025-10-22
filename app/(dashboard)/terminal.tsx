@@ -9,13 +9,18 @@ export default function Terminal() {
   const terminalRef = useRef<HTMLDivElement>(null);
 
   const messages = [
-    { text: '$ 樊宵・时代浪漫主义诗人', color: 'text-green-400', delay: 100 },
-    { text: '$ 作家及学者', color: 'text-blue-400', delay: 80 },
-    { text: '$ 光影幸福人生', color: 'text-cyan-400', delay: 90 },
-    { text: '$ 浏览主义的自由与希望', color: 'text-yellow-400', delay: 85 },
-    { text: '$ 诗，定格浪漫的瞬间', color: 'text-pink-400', delay: 95 },
-    { text: '$ 一盏灯，照亮世界 ✨', color: 'text-purple-400', delay: 100 },
-  ];
+    { text: '$ 樊宵 · 时代浪漫主义诗人', color: 'text-green-400', delay: 95 },
+    { text: '$ 作家 | 学者 | 光影记录者', color: 'text-blue-400', delay: 85 },
+    { text: '$ 自由与希望的信仰', color: 'text-cyan-400', delay: 90 },
+    { text: '$ 诗，定格浪漫的瞬间 ✨', color: 'text-yellow-400', delay: 90 },
+    { text: '$ ━━━━━━━━━━━━━━━━━━━━', color: 'text-gray-500', delay: 60 },
+    { text: '$ 要纯粹：无广告 · 免登录 · 拿来即用', color: 'text-emerald-400', delay: 85 },
+    { text: '$ 亲儿子般的体验 💚', color: 'text-teal-400', delay: 90 },
+    { text: '$ 要聚焦：垂直 · 一键 · 不用思考', color: 'text-orange-400', delay: 85 },
+    { text: '$ 比AI沟通还方便 🚀', color: 'text-rose-400', delay: 90 },
+    { text: '$ 一盏灯，照亮世界 ✨', color: 'text-purple-400', delay: 95 },
+];
+
 
   useEffect(() => {
     let lineIndex = 0;
@@ -96,7 +101,7 @@ export default function Terminal() {
               <svg className="w-4 h-4 text-green-400 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
                 <circle cx="10" cy="10" r="3"/>
               </svg>
-              <span className="text-sm text-gray-400 font-mono">terminal.tsx</span>
+              <span className="text-sm text-gray-400 font-mono">terminal</span>
             </div>
           </div>
 

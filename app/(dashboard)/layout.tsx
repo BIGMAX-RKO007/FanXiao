@@ -1,8 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { User } from '@/lib/db/schema';
-import { signOut } from '@/app/(login)/actions';
 import Link from 'next/link';
 
 export default function Layout({
@@ -24,11 +22,11 @@ export default function Layout({
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-indigo-900/20">
       {/* 炫酷固定头部 */}
-      <header 
+      <header
         className={`
           fixed top-0 left-0 right-0 z-50 transition-all duration-500
-          ${scrolled 
-            ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-2xl shadow-blue-500/10 border-b border-white/20' 
+          ${scrolled
+            ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-2xl shadow-blue-500/10 border-b border-white/20'
             : 'bg-transparent'
           }
         `}
@@ -40,19 +38,16 @@ export default function Layout({
               <div className="relative">
                 {/* 外圈光晕 */}
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full blur-md opacity-75 group-hover:opacity-100 transition-opacity"></div>
-                
+
                 {/* Logo 主体 */}
                 <div className="relative w-12 h-12 bg-gradient-to-br from-orange-500 via-pink-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                  <span className="text-white font-bold text-xl">F</span>
+                  <span className="text-white font-bold text-xl">FX</span>
                 </div>
               </div>
-              
+
               <div className="flex flex-col">
                 <span className="text-2xl font-bold bg-gradient-to-r from-orange-600 via-pink-600 to-purple-600 bg-clip-text text-transparent">
                   FanXiao
-                </span>
-                <span className="text-xs text-gray-500 dark:text-gray-400">
-                  开发者工具箱
                 </span>
               </div>
             </Link>
@@ -65,7 +60,7 @@ export default function Layout({
               >
                 💎 Pricing
               </Link>
-              
+
               <Link
                 href="/dashboard"
                 className="px-6 py-2.5 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white rounded-full hover:bg-white/50 dark:hover:bg-white/10 backdrop-blur-sm transition-all duration-300 font-medium"
@@ -77,7 +72,7 @@ export default function Layout({
               <button className="group relative px-8 py-3 ml-4">
                 {/* 按钮光晕 */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full blur-sm opacity-75 group-hover:opacity-100 transition-opacity"></div>
-                
+
                 {/* 按钮主体 */}
                 <div className="relative px-8 py-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full text-white font-bold shadow-lg transform group-hover:scale-105 transition-all duration-300">
                   ✨ Get Started
@@ -134,7 +129,7 @@ export default function Layout({
         <button className="group relative">
           {/* 按钮光晕 */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity"></div>
-          
+
           {/* 按钮主体 */}
           <div className="relative flex items-center gap-2 px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-bold shadow-2xl transform group-hover:scale-110 transition-all duration-300">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

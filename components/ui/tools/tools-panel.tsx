@@ -38,7 +38,7 @@ import KeyboardShortcuts from './keyboard-shortcuts';
 type ViewMode = 'grid' | 'list';
 
 export default function ToolsPanel() {
-  const [viewMode, setViewMode] = useState<ViewMode>('list');
+  const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const [expandedTool, setExpandedTool] = useState<string | null>(null);
 
   const tools = [
