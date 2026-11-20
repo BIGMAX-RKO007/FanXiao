@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
@@ -56,7 +56,7 @@ export default function TimestampConverter() {
   }, [mounted, isLivePaused]);
 
   // 复制辅助函数
-  const copyToClipboard = async (text: string, key: string) => {
+  const copyToClipboard = async (text: string | undefined | null, key: string) => {
     if (!text || text === '-' || text.includes('错误')) return;
     try {
       await navigator.clipboard.writeText(text);
@@ -440,7 +440,7 @@ export default function TimestampConverter() {
                     </span>
                   </div>
                   <Button
-                    onClick={() => copyToClipboard(parsedTsResult.localStr, 'res_local')}
+                    onClick={() => copyToClipboard(parsedTsResult?.localStr, 'res_local')}
                     size="sm"
                     variant="ghost"
                     className="h-8 px-2"
@@ -460,7 +460,7 @@ export default function TimestampConverter() {
                     </span>
                   </div>
                   <Button
-                    onClick={() => copyToClipboard(parsedTsResult.utcStr, 'res_utc')}
+                    onClick={() => copyToClipboard(parsedTsResult?.utcStr, 'res_utc')}
                     size="sm"
                     variant="ghost"
                     className="h-8 px-2"
@@ -480,7 +480,7 @@ export default function TimestampConverter() {
                     </span>
                   </div>
                   <Button
-                    onClick={() => copyToClipboard(parsedTsResult.isoStr, 'res_iso')}
+                    onClick={() => copyToClipboard(parsedTsResult?.isoStr, 'res_iso')}
                     size="sm"
                     variant="ghost"
                     className="h-8 px-2"
@@ -583,7 +583,7 @@ export default function TimestampConverter() {
                   </p>
                 </div>
                 <Button
-                  onClick={() => copyToClipboard(parsedDateResult.sec, 'res_sec')}
+                  onClick={() => copyToClipboard(parsedDateResult?.sec, 'res_sec')}
                   size="sm"
                   variant="outline"
                   className="h-8 text-xs"
@@ -611,7 +611,7 @@ export default function TimestampConverter() {
                   </p>
                 </div>
                 <Button
-                  onClick={() => copyToClipboard(parsedDateResult.ms, 'res_ms')}
+                  onClick={() => copyToClipboard(parsedDateResult?.ms, 'res_ms')}
                   size="sm"
                   variant="outline"
                   className="h-8 text-xs"
